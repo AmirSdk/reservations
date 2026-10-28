@@ -15,6 +15,7 @@
         <th>ID</th>
         <th>Prénom</th>
         <th>Nom</th>
+        <th>Actions</th>
     </tr>
     </thead>
 
@@ -23,6 +24,19 @@
         <td th:text="${artist.id}"></td>
         <td th:text="${artist.firstname}"></td>
         <td th:text="${artist.lastname}"></td>
+
+        <td>
+            <a th:href="@{/artists/{id}/edit(id=${artist.id})}">
+                Modifier
+            </a>
+
+            <form th:action="@{/artists/{id}/delete(id=${artist.id})}"
+                  method="post"
+                  style="display: inline;">
+                <button type="submit">Supprimer</button>
+            </form>
+        </td>
+
     </tr>
     </tbody>
 </table>
